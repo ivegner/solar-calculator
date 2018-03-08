@@ -1,20 +1,26 @@
-<div class="app-container">
+<div class="app-container d-flex flex-column">
     <header>
-        <nav>
-            <div class="logo">
-                <h1>Solar Area Calculator</h1>
-            </div>
-            <div class="navLinks">
-                <a href="#" class="">Calculator</a>
-                <a href="#" class="">About The Project</a>
-                <a href="#" class="">Github</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Solar Area Calculator</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        {{#link-to "map" class="nav-link"}}Home{{/link-to}}
+                    </li>
+                    <li class="nav-item">
+                        {{#link-to "about" class="nav-link"}}About the Project{{/link-to}}
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://github.com/ivegner" class="nav-link">Github</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
-    <main>
+    <main class="d-flex flex-column fill">
         {{outlet}}
     </main>
-    <footer>
-        test
-    </footer>
 </div>

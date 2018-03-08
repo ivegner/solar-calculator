@@ -1,0 +1,20 @@
+{
+  "name": "solar-calc",
+  "description": "Solar area calculator",
+  "main": "",
+  "authors": [
+    "Ivan Vegner <ivanvegner@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.0.0"
+  }
+}

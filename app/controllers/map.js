@@ -2,10 +2,10 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
     coords: {
-        lat: 51.507568,
-        lng: -0.127762
+        lat: 40.7127753,
+        lng: -74.0059728
       },
-    address: 'London, UK',
+    address: 'New York, NY, USA',
     map: null,
     actions: {
         onMapLoad({ map, /*publicAPI*/ }) {
@@ -20,6 +20,11 @@ export default Controller.extend({
             });
             this.set('address', place['formatted_address']);
             this.map.panTo(this.get('coords'))
+        },
+        onClick(event) {
+            var lat = event['event']['latLng']['lat']();
+            var lng = event['event']['latLng']['lng']();
+            console.log(lat, lng);
         }
       }
 });
