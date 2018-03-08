@@ -1,0 +1,28 @@
+<div class="main-container">
+    <div class="location-details">
+        {{place-autocomplete-field
+            disabled=false
+            handlerController=this
+            placeChangedCallback='onPlaceChanged'
+            withGeoLocate=true
+            setValueWithProperty='formatted_address'
+            preventSubmit=true
+            inputClass='form-control '
+        }}
+        <p>Coordinates: Lat {{coords.lat}} Long {{coords.lng}}</p>
+    </div>
+    {{#g-map lat=coords.lat
+             lng=coords.lng
+             zoom=16
+             zoomControl=true
+             onLoad=(action 'onMapLoad')
+             as |g|
+    }}
+        {{g.marker
+        lat=coords.lat
+        lng=coords.lng
+        draggable=true
+        }}
+
+    {{/g-map}}
+</div>
