@@ -1,0 +1,20 @@
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  {{#radio-button
+      value="pan"
+      classNames="btn btn-primary"
+      groupValue=tools
+      changed="deactivateDraw"
+      radioId="panButton"
+  }}
+  Pan
+  {{/radio-button}}
+  {{#radio-button
+      value="draw"
+      classNames="btn btn-primary"
+      groupValue=tools
+      changed="activateDraw"
+      radioId="drawButton"
+  }}
+  Draw Solar Panel
+  {{/radio-button}}
+</div>

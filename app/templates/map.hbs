@@ -1,31 +1,31 @@
-<div class="fluid-container d-flex fill flex-column mx-3 my-2">
-    <div class="row d-flex align-items-end mb-2">
+<div class="fluid-container d-flex fill flex-column mx-3">
+    <div class="row d-flex my-3 align-items-center">
         <div class="location-details col-sm">
+            <span>Enter location:</span>
             {{place-autocomplete-field
-                value=address
+                placeholder=address
                 disabled=false
                 handlerController=this
                 placeChangedCallback='onPlaceChanged'
                 withGeoLocate=true
                 setValueWithProperty='formatted_address'
                 preventSubmit=true
-                inputClass='form-control '
+                inputClass='form-control'
             }}
             <span>Coordinates: Lat {{coords.lat}} Long {{coords.lng}}</span>
         </div>
-        <div class="col-sm">
-            tes
+        <div class="col-sm d-flex">
+            <div class="m-auto">{{#map-markup}}{{/map-markup}}</div>
         </div>
     </div>
     <div class="row fill">
-        <div class="col-md-12">
+        <div class="col-md-12" id="mapContainer">
             {{#g-map lat=coords.lat
                      lng=coords.lng
                      zoom=16
                      zoomControl=true
                      streetViewControl=false
                      onLoad=(action 'onMapLoad')
-                     onClick=(action 'onClick')
                      as |g|
             }}
                 {{g.marker
@@ -33,7 +33,6 @@
                 lng=coords.lng
                 draggable=true
                 }}
-
             {{/g-map}}
         </div>
     </div>

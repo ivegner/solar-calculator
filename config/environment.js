@@ -61,7 +61,7 @@ module.exports = function(environment) {
     region: 'US',
     protocol: 'https',
     version: '3.31',
-    libraries: ['geometry', 'places']
+    libraries: ['places', 'drawing']
   }
 
   ENV['place-autocomplete'] = {
