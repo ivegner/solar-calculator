@@ -3,10 +3,13 @@ import { inject as service } from '@ember/service';
 import { definePopupClass, polygonArea, popupPlacement } from '../utils/polygon-funcs'
 
 export default Controller.extend({
-    coords: {
-        lat: 40.7127753,
-        lng: -74.0059728
-      },
+    init () {
+        this._super(...arguments);
+        this.set('coords', {
+            lat: 40.7127753,
+            lng: -74.0059728
+        });
+    },
     address: 'New York, NY, USA',
     mapMarkup: service(),
     actions: {
@@ -19,12 +22,18 @@ export default Controller.extend({
             var drawingManager = new window.google.maps.drawing.DrawingManager({
                 drawingMode: window.google.maps.drawing.OverlayType.POLYGON,
                 drawingControl: false,
+                polygonOptions: {
+                   fillColor: '#f7c82c',
+                   opacity: 1,
+                   strokeColor:'#cc7a00'
+                }
             });
 
             // To be attached and detached in map-markup component
             this.get('mapMarkup').set('dm', drawingManager);
 
-            // Class for making area and power popups
+            // Class for making area and power popups. Defined here because window.google
+            // is only defined after the map loads
             var Popup = definePopupClass();
 
             // Listens for completed polygons for further processing
@@ -39,10 +48,16 @@ export default Controller.extend({
                 const EFFICIENCY = 0.1917, INSOLATION = 1;
                 var nomPower = area * EFFICIENCY * INSOLATION;
 
-                var popupText = "Area: " + area.toFixed(2) + " m&#178;<br/>" + "Power: " + nomPower.toFixed(2) + " kWh/day";
+                var popupText = "Area: " + area.toFixed(1) + " m&#178;<br/>" +
+                                "Power: " + nomPower.toFixed(1) + " kWh/day";
                 var popup = new Popup(placement, popupText);
                 popup.setMap(map);
-                console.log("area: " + area + " power: " + nomPower);
+
+                // Delete on double-click
+                polygon.addListener("dblclick", function(){
+                    polygon.setMap(null);
+                    popup.setMap(null)
+                });
             });
 
         },

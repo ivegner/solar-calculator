@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'mapdwell-test',
+    modulePrefix: 'solar-test',
     environment,
     rootURL: '/',
     locationType: 'auto',
@@ -16,6 +16,11 @@ module.exports = function(environment) {
         Date: false
       }
     },
+
+    googleFonts: [
+      'Lato:300,700'
+    ],
+
     contentSecurityPolicy: {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-eval' *.googleapis.com maps.gstatic.com",

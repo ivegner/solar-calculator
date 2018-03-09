@@ -21,7 +21,7 @@ export function popupPlacement(polygon) {
         return Math.abs(heading) > 70;
     };
 
-    polygon.getPath().forEach(function(element, index) {
+    polygon.getPath().forEach(function(element) {
         // If they're the first element checked, they are the most northern so far
         if (northernmost == null) {
             northernmost = element;
@@ -69,7 +69,7 @@ export function popupPlacement(polygon) {
 
 
 export function definePopupClass() {
-    // https://developers.google.com/maps/documentation/javascript/examples/overlay-popup
+    // Taken from https://developers.google.com/maps/documentation/javascript/examples/overlay-popup
     class Popup extends window.google.maps.OverlayView{
         constructor(position, text) {
             super(position, {});

@@ -1,13 +1,22 @@
 .app-container {
     height: 100vh;
+    font-family: 'Lato', sans-serif;
 }
 
 .ember-google-map {
-    height: 100%;
+    height: 90%;
 }
 
 .fill {
     flex:1;
+}
+
+.navbar-brand {
+    font-family: 'Lato:700', sans-serif;
+}
+
+.bg-light {
+    background-color: rgba(0, 123, 255, 0.05)!important;
 }
 
 /* The location pointed to by the popup tip. */

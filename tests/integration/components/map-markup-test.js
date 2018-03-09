@@ -12,15 +12,14 @@ module('Integration | Component | map-markup', function(hooks) {
 
     await render(hbs`{{map-markup}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.ok(this.element);
 
     // Template block usage:
     await render(hbs`
       {{#map-markup}}
-        template block text
       {{/map-markup}}
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.ok(this.element);
   });
 });

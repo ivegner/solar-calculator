@@ -1,7 +1,14 @@
-<div class="fluid-container d-flex fill flex-column mx-3">
-    <div class="row d-flex my-3 align-items-center">
+<div class="fluid-container d-flex fill flex-column px-3 bg-light">
+    {{!-- <div>
+        <p>
+            Using this tool, you can calculate the output of a solar installation.<br>
+            To use, enter the address of the house which you would like to plan, then select "Draw Solar Panel" to draw.<br>
+            Upon completing the shape of the panel, you will receive your results.
+        </p>
+    </div> --}}
+    <div class="row d-flex my-3 align-items-end">
         <div class="location-details col-sm">
-            <span>Enter location:</span>
+            <span>&nbsp;Enter location:</span>
             {{place-autocomplete-field
                 placeholder=address
                 disabled=false
@@ -12,10 +19,11 @@
                 preventSubmit=true
                 inputClass='form-control'
             }}
-            <span>Coordinates: Lat {{coords.lat}} Long {{coords.lng}}</span>
+            <span>&nbsp;Coordinates: ({{coords.lat}}, {{coords.lng}})</span>
         </div>
-        <div class="col-sm d-flex">
-            <div class="m-auto">{{#map-markup}}{{/map-markup}}</div>
+        <div class="col-sm d-flex align-items-end flex-column">
+            <div class="mx-auto">{{#map-markup}}{{/map-markup}}</div>
+            <div class="mx-auto">(Double-click to remove solar panel)</div>
         </div>
     </div>
     <div class="row fill">
@@ -26,12 +34,16 @@
                      zoomControl=true
                      streetViewControl=false
                      onLoad=(action 'onMapLoad')
+                     tilt=0
+                     disableDoubleClickZoom=true
+                     mapTypeId='satellite'
+                     fullscreenControl=false
                      as |g|
             }}
                 {{g.marker
                 lat=coords.lat
                 lng=coords.lng
-                draggable=true
+                draggable=false
                 }}
             {{/g-map}}
         </div>

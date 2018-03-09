@@ -1,5 +1,5 @@
 {
-  "name": "mapdwell-test",
+  "name": "solar-test",
   "version": "0.0.0",
   "private": true,
   "description": "Small description for mapdwell-test goes here",
@@ -26,6 +26,7 @@
     "ember-cli-bootstrap-4": "^0.5.6",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.2.1",
+    "ember-cli-google-fonts": "^2.16.2",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
