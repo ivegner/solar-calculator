@@ -2,7 +2,7 @@
   "name": "solar-test",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for mapdwell-test goes here",
+  "description": "Solar installation power calculator using Google Maps",
   "license": "MIT",
   "author": "",
   "directories": {
